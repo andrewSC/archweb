@@ -1,5 +1,5 @@
 try:
-    import cPickle as pickle
+    import pickle as pickle
 except ImportError:
     import pickle
 
@@ -58,6 +58,15 @@ def empty_response():
     # not add a 'Content-Length: 0' header
     empty.streaming = True
     return empty
+
+
+def format_http_headers(request):
+    headers = sorted((k, v) for k, v in request.META.items()
+            if k.startswith('HTTP_'))
+    data = []
+    for k, v in headers:
+        data.extend([k[5:].replace('_', '-').title(), ': ', v, '\n'])
+    return ''.join(data)
 
 
 # utility to make a pair of django choices
