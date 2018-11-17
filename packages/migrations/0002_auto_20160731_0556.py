@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='signoffspecification',
             name='known_bad',
-            field=models.BooleanField(default=False, help_text=b'Is this package known to be broken in some way?'),
+            field=models.BooleanField(default=False, help_text='Is this package known to be broken in some way?'),
             preserve_default=True,
         ),
     ]

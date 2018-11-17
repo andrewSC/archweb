@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(db_index=True)),
                 ('last_modified', models.DateTimeField(editable=False)),
                 ('raw', models.TextField(blank=True)),
-                ('creator', models.ForeignKey(related_name=b'created_todolists', on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
+                ('creator', models.ForeignKey(related_name='created_todolists', on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'get_latest_by': 'created',
@@ -43,10 +43,10 @@ class Migration(migrations.Migration):
                 ('removed', models.DateTimeField(null=True, blank=True)),
                 ('status', models.SmallIntegerField(default=0, choices=[(0, b'Incomplete'), (1, b'Complete'), (2, b'In-progress')])),
                 ('comments', models.TextField(null=True, blank=True)),
-                ('arch', models.ForeignKey(to='main.Arch')),
+                ('arch', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Arch')),
                 ('pkg', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, to='main.Package', null=True)),
-                ('repo', models.ForeignKey(to='main.Repo')),
-                ('todolist', models.ForeignKey(to='todolists.Todolist')),
+                ('repo', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Repo')),
+                ('todolist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='todolists.Todolist')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, null=True)),
             ],
             options={

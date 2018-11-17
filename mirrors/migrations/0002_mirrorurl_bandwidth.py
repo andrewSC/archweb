@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='mirrorurl',
             name='bandwidth',
-            field=models.FloatField(null=True, verbose_name=b'bandwidth (mbits)', blank=True),
+            field=models.FloatField(null=True, verbose_name='bandwidth (mbits)', blank=True),
             preserve_default=True,
         ),
     ]

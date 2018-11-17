@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='flagrequest',
             name='user_email',
-            field=models.EmailField(max_length=254, verbose_name=b'email address'),
+            field=models.EmailField(max_length=254, verbose_name='email address'),
         ),
     ]

@@ -2,7 +2,7 @@
 
 
 from django.db import models, migrations
-
+import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.PositiveIntegerField()),
                 ('member_title', models.CharField(max_length=100)),
                 ('description', models.TextField(blank=True)),
-                ('group', models.OneToOneField(to='auth.Group')),
+                ('group', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='auth.Group')),
             ],
             options={
                 'ordering': ('sort_order',),
